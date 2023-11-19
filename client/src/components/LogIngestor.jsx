@@ -3,6 +3,10 @@ import { Link } from "react-router-dom";
 const LogIngestor = () => {
   const [jsonData, setJsonData] = useState("");
   const [dataSent,sentData]=useState(0);
+<<<<<<< HEAD
+  console.log(jsonData);
+=======
+>>>>>>> ea83d8a1f6af4fd7c9b43e4c1be67931006a3708
   const setData = (event) => {
     if (event.target.value)
       setJsonData(event.target.value);
