@@ -2,7 +2,7 @@
 # Log Ingestor And Query Interface
 
 ##### Overview
-This system is designed to efficiently ingest, store, and query vast volumes of log data. It comprises a Log Ingestor responsible for accepting log data over HTTP and a Query Interface that enables users to perform full-text searches and apply filters on various log attributes.
+This system is designed to efficiently  store, and query vast volumes of log data. It consist of a Log Ingestor page responsible for accepting log data over HTTP and a Query Interface that allows  users to perform full-text searches and apply filters on various log attributes.
 
 ### Project Overview
 **Log ingestor Frontend**
@@ -62,15 +62,10 @@ This system is designed to efficiently ingest, store, and query vast volumes of 
    npm install
    npm start
    ```
-5. Start Log ingestor server
+5. Start Log ingestor server by entering following url in your browser:
   http://localhost:3000
 
-###Tutorial
 
-##Log Ingestor
-
-
-##Query Interface
 
 ##Future Improvements
 - **Scalability**: Enhance inserting of large amount of logs using Apache Kafka.
