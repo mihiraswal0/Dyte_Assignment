@@ -4,8 +4,19 @@
 ##### Overview
 This system is designed to efficiently ingest, store, and query vast volumes of log data. It comprises a Log Ingestor responsible for accepting log data over HTTP and a Query Interface that enables users to perform full-text searches and apply filters on various log attributes.
 
-###Project Overview
-![Project Demo](https://github.com/mihiraswal0/Dyte_Assignment/blob/main/tutorial/ScreenRecorderProject1.mp4)
+### Project Overview
+**Log ingestor Frontend**
+![Log Ingestor Demo](https://github.com/mihiraswal0/Dyte_Assignment/blob/main/tutorial/Screenshot%20(1152).png)
+
+**Query Interface Filter**
+![Query Interface](https://github.com/mihiraswal0/Dyte_Assignment/blob/main/tutorial/Screenshot%20(1153).png)
+
+**Adding Log to Log Ingestor Page***
+![Add log](https://github.com/mihiraswal0/Dyte_Assignment/blob/main/tutorial/Screenshot%20(1154).png)
+
+**Search Results**
+![Search Result](https://github.com/mihiraswal0/Dyte_Assignment/blob/main/tutorial/Screenshot%20(1155).png)
+
 ## Technologies Used
 - **Database**: Mongo Db
 - **Frontend**: React js
