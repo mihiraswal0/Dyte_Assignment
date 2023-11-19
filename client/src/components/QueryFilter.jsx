@@ -54,50 +54,55 @@ const QueryFilter = () => {
 
         resetForm();
     }
-    const incPage = () => {
-        setPage(page + 1);
-    }
-    const decPage = () => {
-        setPage(page - 1);
-    }
 
     return (
         <div>
             <form>
-                <div className="mb-3">
-                    <label htmlFor="level" className="form-label" >Level</label>
-                    <input type="string" className="form-control" id="level" value={level} onChange={(event) => setLevel(event.target.value)} />
-                </div>
-                <div className="mb-3">
-                    <label htmlFor="message" className="form-label" >message</label>
-                    <input type="string" className="form-control" id="message" value={message} onChange={(event) => setMessage(event.target.value)} />
-                </div>
-                <div className="mb-3">
-                    <label htmlFor="resourceId" className="form-label" >resourceId</label>
-                    <input type="string" className="form-control" id="resourceId" value={resourceId} onChange={(event) => setResourceId(event.target.value)} />
-                </div> <div className="mb-3">
-                    <label htmlFor="timestamp" className="form-label" >timestamp</label>
-                    <input type="string" className="form-control" id="timestamp" value={timestamp} onChange={(event) => setTimeStamp(event.target.value)} />
-                </div> <div className="mb-3">
-                    <label htmlFor="traceId" className="form-label" >traceId</label>
-                    <input type="string" className="form-control" id="traceId" value={traceId} onChange={(event) => setTraceId(event.target.value)} />
-                </div> <div className="mb-3">
-                    <label htmlFor="spanId" className="form-label" >spanId</label>
-                    <input type="string" className="form-control" id="spanId" value={spanId} onChange={(event) => setSpanId(event.target.value)} />
-                </div>
-                <div className="mb-3">
-                    <label htmlFor="commit" className="form-label" >commit</label>
-                    <input type="string" className="form-control" id="commit" value={commit} onChange={(event) => setCommit(event.target.value)} />
-                </div><div className="mb-3">
-                    <label htmlFor="metadata_parentResourceId" className="form-label" >metadata.parentResourceId</label>
-                    <input type="string" className="form-control" id="metadata_parentResourceId" value={metadata_parentResourceId} onChange={(event) => setMetadata_parentResourceId(event.target.value)} />
+                <div className="container text-center">
+                    <div className="row row-cols-3">
+                        <div>
+                            <label htmlFor="level" className="form-label" >Level</label>
+                            <input type="string" className="form-control" id="level" value={level} onChange={(event) => setLevel(event.target.value)} />
+                        </div>
+                        <div className="mb-3">
+                            <label htmlFor="message" className="form-label" >message</label>
+                            <input type="string" className="form-control" id="message" value={message} onChange={(event) => setMessage(event.target.value)} />
+                        </div>
+                        <div className="mb-3">
+                            <label htmlFor="resourceId" className="form-label" >resourceId</label>
+                            <input type="string" className="form-control" id="resourceId" value={resourceId} onChange={(event) => setResourceId(event.target.value)} />
+                        </div>
+                    </div>
+                    <div className="row row-cols-3">
+                        <div className="mb-3">
+                            <label htmlFor="timestamp" className="form-label" >timestamp</label>
+                            <input type="string" className="form-control" id="timestamp" value={timestamp} onChange={(event) => setTimeStamp(event.target.value)} />
+                        </div> <div className="mb-3">
+                            <label htmlFor="traceId" className="form-label" >traceId</label>
+                            <input type="string" className="form-control" id="traceId" value={traceId} onChange={(event) => setTraceId(event.target.value)} />
+                        </div> <div className="mb-3">
+                            <label htmlFor="spanId" className="form-label" >spanId</label>
+                            <input type="string" className="form-control" id="spanId" value={spanId} onChange={(event) => setSpanId(event.target.value)} />
+                        </div>
+                    </div>
+                    <div className='row row-cols-2'>
+                        <div className="mb-3">
+                            <label htmlFor="commit" className="form-label" >commit</label>
+                            <input type="string" className="form-control" id="commit" value={commit} onChange={(event) => setCommit(event.target.value)} />
+                        </div><div className="mb-3">
+                            <label htmlFor="metadata_parentResourceId" className="form-label" >metadata.parentResourceId</label>
+                            <input type="string" className="form-control" id="metadata_parentResourceId" value={metadata_parentResourceId} onChange={(event) => setMetadata_parentResourceId(event.target.value)} />
+                        </div>
+                    </div>
+                    
+                    <button type="submit" className="btn btn-primary " onClick={submit}>Submit</button>
                 </div>
 
-                <button type="submit" className="btn btn-primary" onClick={submit}>Submit</button>
+                
             </form>
             <div>
                 <QueryTable response={responseData} />
-               
+
             </div>
         </div>
     )

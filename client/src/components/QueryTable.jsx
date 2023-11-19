@@ -7,72 +7,59 @@ const QueryTable = (props) => {
             <div>
                 <h1>Search Results</h1>
             </div>
-            <div>
-                <div className="container text-center">
-                    <div className="row align-items-start">
-                        <div className="col">
-                            Level
-                        </div>
-                        <div className="col">
-                            Message
-                        </div>
-                        <div className="col">
-                            ResourceId
-                        </div>
-                        <div className="col">
-                            TimeStamp
-                        </div>
-                        <div className="col">
-                            TraceId
-                        </div>
-                        <div className="col">
-                            SpanId
-                        </div>
-                        <div className="col">
-                            Commit
-                        </div>
-                        <div className="col">
-                            ParentResourceId
-                        </div>
-                    </div>
+            {response.length?<table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">Level</th>
+                        <th scope="col">Message</th>
+                        <th scope="col">ResourceId</th>
+                        <th scope="col">TimeStamp</th>
+                        <th scope="col">TraceId</th>
+                        <th scope="col">SpanId</th>
+                        <th scope="col">Commit</th>
+                        <th scope="col">ParentResourceId</th>
+                    </tr>
+                </thead>
+                <tbody>
                     {
-                response.map((res) => {
-                    return (
-                        <div className="row align-items-start" key={res._id}>
-                            <div className="col">
-                                {res.level}
-                            </div>
-                            <div className="col">
-                                {res.message}
-                            </div>
-                            <div className="col">
-                                {res.resourceId}
-                            </div>
-                            <div className="col">
-                                {res.timestamp}
-                            </div>
-                            <div className="col">
-                                {res.traceId}
-                            </div>
-                            <div className="col">
-                                {res.spanId}
-                            </div>
-                            <div className="col">
-                                {res.commit}
-                            </div>
-                            <div className="col">
-                                {res.metadata.parentResourceId}
-                            </div>
-                        </div>
-                    )
-                })
+                        response.map((res) => {
+                            return (
+                                <tr>
+                                    <td className="col">
+                                        {res.level}
+                                    </td>
+                                    <td className="col">
+                                        {res.message}
+                                    </td>
+                                    <td className="col">
+                                        {res.resourceId}
+                                    </td>
+                                    <td className="col">
+                                        {res.timestamp}
+                                    </td>
+                                    <td className="col">
+                                        {res.traceId}
+                                    </td>
+                                    <td className="col">
+                                        {res.spanId}
+                                    </td>
+                                    <td className="col">
+                                        {res.commit}
+                                    </td>
+                                    <td className="col">
+                                        {res.metadata.parentResourceId}
+                                    </td>
+                                </tr>
+                            )
+                        })
+                    }
+
+                </tbody>
+            </table>:<h3>No Data To Display...!</h3>
+            
             }
+            
 
-
-                </div>
-                
-            </div>
-           
         </div>
     );
 };

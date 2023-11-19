@@ -8,6 +8,10 @@ const LogIngestor = () => {
       setJsonData(event.target.value);
   }
   const validate = async () => {
+    if(!jsonData.length)
+    {
+      return alert("Please Enter Data");
+    }
     const parsedData = JSON.parse(jsonData);
     if (typeof parsedData === "object") {
       const res = await fetch('http://localhost:5000/api', {
@@ -40,8 +44,10 @@ const LogIngestor = () => {
       </div>
       <div>
         <h3>Enter Log Data In Json Format </h3>
-        <textarea name="jsonData" value={jsonData} onChange={setData}></textarea>
+        <textarea name="jsonData" value={jsonData} onChange={setData} style={{"height": "400px", "width":"400px"}}></textarea>
+        <div>
         <button onClick={validate}>Validate And Send Data</button>
+          </div>
       </div>
     </div>
   );
