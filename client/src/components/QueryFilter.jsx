@@ -9,7 +9,6 @@ const QueryFilter = () => {
     const [spanId, setSpanId] = useState("");
     const [commit, setCommit] = useState("");
     const [metadata_parentResourceId, setMetadata_parentResourceId] = useState("");
-    const [page, setPage] = useState(1);
     const [responseData, setResponseData] = useState([]);
     const resetForm = () => {
         setLevel("");
@@ -43,7 +42,6 @@ const QueryFilter = () => {
             data.metadata = { "parentResourceId": metadata_parentResourceId };
 
         data = JSON.stringify(data)
-        console.log(data);
         const res = await fetch('http://localhost:5000/api/query', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },

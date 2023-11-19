@@ -2,10 +2,14 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 const LogIngestor = () => {
   const [jsonData, setJsonData] = useState("");
-  console.log(jsonData)
+  const [dataSent,sentData]=useState(0);
   const setData = (event) => {
     if (event.target.value)
       setJsonData(event.target.value);
+  }
+  const reset=()=>{
+    setJsonData("");
+    sentData(0);
   }
   const validate = async () => {
     if(!jsonData.length)
@@ -21,9 +25,8 @@ const LogIngestor = () => {
         },
         body: JSON.stringify(parsedData)
       });
-      console.log(res);
       if (res.status === 200) {
-        alert("Data is Valid and sent successfully");
+        sentData(1);
         setJsonData("");
       }
       else
@@ -44,9 +47,14 @@ const LogIngestor = () => {
       </div>
       <div>
         <h3>Enter Log Data In Json Format </h3>
-        <textarea name="jsonData" value={jsonData} onChange={setData} style={{"height": "400px", "width":"400px"}}></textarea>
+        <textarea name="jsonData" value={jsonData} onChange={setData} style={{"height": "400px", "width":"400px"}}/>
         <div>
         <button onClick={validate}>Validate And Send Data</button>
+        <button onClick={reset}>Reset</button>
+        <div>
+{dataSent?<h5>Data Send Successfully</h5>:<h5></h5>}
+        </div>
+        
           </div>
       </div>
     </div>
