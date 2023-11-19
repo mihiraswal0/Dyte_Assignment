@@ -1,10 +1,12 @@
 const logModel=require('../Model/logModel.js');
 const getData=async(req,res)=>{
 const condition=req.body;
+const page=req.query.page;
 // console.log(JSON.stringify(condition));
 console.log(condition);
 try{
-    const getData=await logModel.find(condition);
+
+    const getData=await logModel.find(condition).skip((page-1)*20).limit(20);
     res.status(200).json(getData);
 }
 catch(err){
