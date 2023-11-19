@@ -1,22 +1,33 @@
-import React,{useState} from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 const LogIngestor = () => {
-    const [jsonData,setJsonData]=useState("");
-    console.log(jsonData)
-    const setData=(event)=>{
-        if(event.target.value)
-        setJsonData(event.target.value);
+  const [jsonData, setJsonData] = useState("");
+  console.log(jsonData)
+  const setData = (event) => {
+    if (event.target.value)
+      setJsonData(event.target.value);
+  }
+  const validate = async () => {
+    const parsedData = JSON.parse(jsonData);
+    if (typeof parsedData === "object") {
+      const res = await fetch('http://localhost:5000/api', {
+        method: 'POST',
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(parsedData)
+      });
+      console.log(res);
+      if (res.status === 200) {
+        alert("Data is Valid and sent successfully");
+        setJsonData("");
+      }
+      else
+        alert("Error:" + res.error);
     }
-    const validate=()=>{
-        const parsedData=JSON.parse(jsonData);
-        if(typeof parsedData ==="object")
-        {
-            alert("Data is Valid and Sent Successfully");
-            setJsonData("");
-        }
-        else
-        alert("Data is Invalid");
-    }
+    else
+      alert("Data is Invalid");
+  }
   return (
     <div>
       <div>

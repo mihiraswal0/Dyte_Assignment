@@ -10,7 +10,7 @@ require('dotenv').config();
 const port=process.env.PORT ||5000;
 
 app.post('/api',addData);
-app.get('/api',getData);
+app.post('/api/query',getData);
 
 app.use('/',(req,res)=>{
 

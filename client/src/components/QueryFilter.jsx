@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import { json } from 'react-router-dom';
 
 const QueryFilter = () => {
     const [level, setLevel] = useState("");
@@ -10,6 +9,7 @@ const QueryFilter = () => {
     const [spanId, setSpanId] = useState("");
     const [commit, setCommit] = useState("");
     const [metadata_parentResourceId, setMetadata_parentResourceId] = useState("");
+    const [responseData,setResponseData]=useState([]);
     const resetForm=()=>{
         setLevel("");
         setMessage("");
@@ -20,29 +20,36 @@ const QueryFilter = () => {
         setCommit("");
         setMetadata_parentResourceId("");
     }
-    const submit = (e) => {
+    const submit = async(e) => {
         e.preventDefault();
        
-        let data = [];
+        let data= {};
         if (level)
-            data.push({ "level": level });
+            data.level=level;
         if (message)
-            data.push({ "message": message });
+            data.message= message;
         if (resourceId)
-            data.push({ "resourceId": resourceId });
+            data.resourceId=resourceId;
         if (timestamp)
-            data.push({ "timestamp": timestamp });
+            data.timestamp=timestamp;
         if (traceId)
-            data.push({ "traceId": traceId });
+            data.traceId=traceId;
         if (spanId)
-            data.push({ "spanId": spanId });
+            data.spanId=spanId;
         if (commit)
-            data.push({ "commit": commit });
+            data.commit=commit;
         if (metadata_parentResourceId)
-            data.push({ "metadata_parentResourceId": metadata_parentResourceId });
+            data.metadata={"parentResourceId": metadata_parentResourceId};
 
             data=JSON.stringify(data)
             console.log(data);
+            const res=await fetch('http://localhost:5000/api/query',{
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body:data
+            })
+             const response=await res.json();
+             setResponseData(await response);
             resetForm();
     }
    

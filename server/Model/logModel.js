@@ -8,7 +8,7 @@ const logModel=mongoose.Schema({
     message:{
         type:'String',
         required: true
-    }, resourcId:{
+    }, resourceId:{
         type:'String',
         required: true
     }, timestamp:{
@@ -24,8 +24,8 @@ const logModel=mongoose.Schema({
         type:'String',
         required: true
     },
-    metadata_parentResourceId:{
-        type:'String',
+    metadata:{
+        type:'Object',
         required: true
     }
 },{timestamp:true});
